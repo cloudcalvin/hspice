@@ -3,14 +3,15 @@ use Data::Dumper;
 use Pegex;
 use Pegex::Grammar;
 use Pegex::Tree::Wrap;
+
 use XXX;
-use utf8;
+# use utf8;
 # use Encode;
 
 my ($grammar, $buffer);
 END {
     #utf8::upgrade($buffer);
-    utf8::downgrade($buffer);
+    #utf8::downgrade($buffer);
     #$buffer = encode('UTF-8', $buffer, Encode::FB_CROAK);
     Pegex::Parser->new(
         grammar => Pegex::Grammar->new( text => $grammar ),
@@ -22,7 +23,7 @@ END {
 $grammar = <<'...';
 # This is the Pegex Grammar
 %grammar HSPICE
-%version 0.01
+# %version 0.01
 
 file: document* atom*
 
